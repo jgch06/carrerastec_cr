@@ -33,7 +33,7 @@
           <form method="post">
             <div class="form-group">
               <div class="form-label-group">
-                <input type="input" id="inputEmail" name = "usuario" class="form-control" placeholder="Nombre de usuario" required="required" autofocus="autofocus">
+                <input type="input" id="inputEmail" name = "usuario" class="form-control" placeholder="Nombre de usuario" required="required" autofocus="autofocus" value="<?=$_POST['usuario']?>">
                 <label for="inputEmail">Usuario</label>
               </div>
             </div>
