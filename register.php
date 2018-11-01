@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
   <head>
 
@@ -101,6 +101,13 @@
 
       $direccion = "http://carrerastec-cr.herokuapp.com/web_services/AMCareer/Images/" . $carrera."/";
       $url = $direccion . $_FILES['file']['name'];
+      echo $carrera;
+      echo "-";
+      echo $escuela;
+      echo "-";
+      echo $direccion;
+      echo "-";
+      echo $url;
 
       if (move_uploaded_file($_FILES['file']['tmp_name'], $url)){
           $sql = 'CALL agregarCarrera(?,?,?)';
@@ -112,13 +119,13 @@
 
           echo ' <script language="javascript">
                              alert("La carrera se agregó con éxito.");
-                             window.location="regiter.php";
+                             window.location="register.php";
                         </script>';
 
       } else {
           echo ' <script language="javascript">
                              alert("Error en la imagen.");
-                             window.location="regiter.php";
+                             window.location="register.php";
                         </script>';
       }
     }
