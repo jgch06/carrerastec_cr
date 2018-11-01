@@ -96,20 +96,21 @@
       require_once("lib/db_connect.php");
       $db = Conectar::conexion();
 
-      $carrera = $_GET['carrera'];
-      $escuela = $_GET['escuela'];
+      $carrera = $_POST['carrera'];
+      $escuela = $_POST['escuela'];
+
+      echo $carrera;
+      echo $escuela;
 
       $direccion = "http://carrerastec-cr.herokuapp.com/web_services/AMCareer/Images/" . $carrera."/";
       $url = $direccion . $_FILES['file']['name'];
-      echo $carrera;
-      echo "-";
-      echo $escuela;
+
       echo "-";
       echo $direccion;
       echo "-";
       echo $url;
 
-      if (move_uploaded_file($_FILES['file']['tmp_name'], $url)){
+      if (move_uploaded_file($_FILES['file']['name'], $url)){
           $sql = 'CALL agregarCarrera(?,?,?)';
           $stmt = $db->prepare($sql);
           $stmt->bindParam(1, $carrera, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
