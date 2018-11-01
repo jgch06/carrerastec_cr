@@ -103,14 +103,14 @@
       echo $escuela;
 
       $direccion = "http://carrerastec-cr.herokuapp.com/web_services/AMCareer/Images/" . $carrera."/";
-      $url = $direccion . $_FILES['file']['name'];
+      $url = $direccion . $_FILES['file']['tempname'];
 
       echo "-";
       echo $direccion;
       echo "-";
       echo $url;
 
-      if (move_uploaded_file($_FILES['file']['name'], $url)){
+      if (move_uploaded_file($_FILES['file']['tmp_name'], $url)){
           $sql = 'CALL agregarCarrera(?,?,?)';
           $stmt = $db->prepare($sql);
           $stmt->bindParam(1, $carrera, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
