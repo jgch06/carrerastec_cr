@@ -117,16 +117,16 @@
           $stmt->bindParam(3, $url, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
           $stmt->execute();
 
-          echo ' <script language="javascript">
+          /*echo ' <script language="javascript">
                              alert("La carrera se agregó con éxito.");
                              window.location="register.php";
-                        </script>';
+                        </script>';*/
 
       } else {
-          echo ' <script language="javascript">
+          /*echo ' <script language="javascript">
                              alert("Error en la imagen.");
                              window.location="register.php";
-                        </script>';
+                        </script>';*/
       }
     }
 
