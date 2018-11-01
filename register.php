@@ -79,7 +79,7 @@
                 </div>
               </div>
             </div>-->
-            <a class="btn btn-primary btn-block" href="inicio.php">Registrar</a>
+            <button class="btn btn-primary btn-block" name = "registrar" href="inicio.php">Registrar</button>
           </form>
           <div class="text-center">
             <a class="d-block small mt-3" href="inicio.php">Regresar</a>
@@ -91,6 +91,8 @@
 
     <?php
 
+    if (isset($_POST['registrar'])) {
+
       require_once("lib/db_connect.php");
       $db = Conectar::conexion();
 
@@ -100,7 +102,7 @@
       $direccion = "http://carrerastec-cr.herokuapp.com/web_services/AMCareer/Images/" . $carrera."/";
       $url = $direccion . $_FILES['file']['name'];
 
-      if (move_uploaded_file($_FILES['file']['tmp_name'], $url) {
+      if (move_uploaded_file($_FILES['file']['tmp_name'], $url)){
           $sql = 'CALL agregarCarrera(?,?,?)';
           $stmt = $db->prepare($sql);
           $stmt->bindParam(1, $carrera, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
@@ -119,6 +121,7 @@
                              window.location="regiter.php";
                         </script>';
       }
+    }
 
     ?>
 
