@@ -33,7 +33,7 @@
           <form method="post">
             <div class="form-group">
               <div class="form-label-group">
-                <input type="email" id="inputEmail" name = "usuario" class="form-control" placeholder="Nombre de usuario" required="required" autofocus="autofocus">
+                <input type="input" id="inputEmail" name = "usuario" class="form-control" placeholder="Nombre de usuario" required="required" autofocus="autofocus">
                 <label for="inputEmail">Usuario</label>
               </div>
             </div>
@@ -51,7 +51,8 @@
                 </label>
               </div>
             </div>
-            <a class="btn btn-primary btn-block" name = "ingresar">Login</a>
+            
+            <button class="btn btn-primary btn-block" name = "ingresar">Login</button>
           </form>
           <div class="text-center">
             <a class="d-block small mt-3" href="register.php">Register an Account</a>
@@ -61,6 +62,43 @@
       </div>
     </div>
 
+
+    <?php
+
+      if (isset($_POST['ingresar'])) {
+        $nombreUsuario = $_POST['usuario'];
+        $password = $_POST['password'];
+
+        require_once("lib/db_connect.php");
+        $db = Conectar::conexion();
+        $resultado = array();
+
+        $sql = 'CALL validarIngreso(?,?)';
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam(1, $nombreUsuario, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
+        $stmt->bindParam(2, $password,  PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
+        $stmt->execute();
+        
+        $resultado = $stmt->fetchAll();
+        
+        if(count($resultado) == 1){
+          $_SESSION['k_username'] = $nombreUsuario;
+          header('location: index.php');
+
+        }
+
+        else{
+          $_SESSION['k_username']  = "";
+          echo ' <script language="javascript">
+                             alert("El usuario o la contraseña está incorrecta.");
+                             window.location="index.php";
+                        </script>';
+        }
+        
+      }
+
+    ?>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
 
@@ -68,9 +106,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.compatibility.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-
-
-    
 
   </body>
 
