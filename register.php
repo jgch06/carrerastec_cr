@@ -52,6 +52,7 @@
             <div class="form-group">
               <div class="form-label-group">
                 <label for="avatar">Imagen de la carrera:</label>
+                <br><br>
                 <input type="file"
                id="avatar" name="avatar"
                accept="image/png"/>
@@ -76,10 +77,10 @@
                 </div>
               </div>
             </div>-->
-            <a class="btn btn-primary btn-block" href="inicio.php">Register</a>
+            <a class="btn btn-primary btn-block" href="inicio.php">Registrar</a>
           </form>
           <div class="text-center">
-            <a class="d-block small mt-3" href="inicio.php">Inicio</a>
+            <a class="d-block small mt-3" href="inicio.php">Regresar</a>
             <!--<a class="d-block small" href="edit.php">Forgot Password?</a>-->
           </div>
         </div>
