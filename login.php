@@ -70,43 +70,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
 
 
-    <?php
-
-      if (isset($_POST['ingresar'])) {
-        $nombreUsuario = $_POST['usuario'];
-        $password = $_POST['password'];
-
-        echo $nombreUsuario;
-        echo $password
-
-
-        require_once("lib/db_connect.php");
-        $db = Conectar::conexion();
-        $resultado = array();
-
-        $sql = 'CALL validarIngreso(?,?)';
-        $stmt = $db->prepare($sql);
-        $stmt->bindParam(1, $nombreUsuario, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
-        $stmt->bindParam(2, $password,  PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
-        $stmt->execute();
-        
-        $resultado = $stmt->fetchAll();
-
-        var_dump($resultado);
-
-        echo (count($resultado));
-        
-
-
-
-      }
-
-
-
-
-
-
-    ?>
+    
 
   </body>
 
