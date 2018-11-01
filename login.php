@@ -30,16 +30,16 @@
       <div class="card card-login mx-auto mt-5">
         <div class="card-header">Login</div>
         <div class="card-body">
-          <form>
+          <form method="post">
             <div class="form-group">
               <div class="form-label-group">
-                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="required" autofocus="autofocus">
-                <label for="inputEmail">Email address</label>
+                <input type="email" id="inputEmail" name = "usuario" class="form-control" placeholder="Nombre de usuario" required="required" autofocus="autofocus">
+                <label for="inputEmail">Usuario</label>
               </div>
             </div>
             <div class="form-group">
               <div class="form-label-group">
-                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="required">
+                <input type="password" id="inputPassword" name = "password" class="form-control" placeholder="Password" required="required">
                 <label for="inputPassword">Password</label>
               </div>
             </div>
@@ -51,7 +51,7 @@
                 </label>
               </div>
             </div>
-            <a class="btn btn-primary btn-block" href="inicio.php">Login</a>
+            <a class="btn btn-primary btn-block" name = "ingresar">Login</a>
           </form>
           <div class="text-center">
             <a class="d-block small mt-3" href="register.php">Register an Account</a>
@@ -68,6 +68,45 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.compatibility.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+
+
+    <?php
+
+      if (isset($_POST['ingresar'])) {
+        $nombreUsuario = $_POST['usuario'];
+        $password = $_POST['password'];
+
+        echo $nombreUsuario;
+        echo $password
+
+
+        require_once("lib/db_connect.php");
+        $db = Conectar::conexion();
+        $resultado = array();
+
+        $sql = 'CALL validarIngreso(?,?)';
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam(1, $nombreUsuario, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
+        $stmt->bindParam(2, $password,  PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
+        $stmt->execute();
+        
+        $resultado = $stmt->fetchAll();
+
+        var_dump($resultado);
+
+        echo (count($resultado));
+        
+
+
+
+      }
+
+
+
+
+
+
+    ?>
 
   </body>
 
