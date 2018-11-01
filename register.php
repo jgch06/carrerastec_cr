@@ -97,8 +97,8 @@
       $carrera = $_GET['carrera'];
       $escuela = $_GET['escuela'];
 
-      $direccion = "http://carrerastec-cr.herokuapp.com/web_services/AMCareer/Images/".$carrera."/";
-      $url = $direccion.$_FILES['file']['name']);
+      $direccion = "http://carrerastec-cr.herokuapp.com/web_services/AMCareer/Images/" . $carrera."/";
+      $url = $direccion . $_FILES['file']['name'];
 
       if (move_uploaded_file($_FILES['file']['tmp_name'], $url) {
           $sql = 'CALL agregarCarrera(?,?,?)';
