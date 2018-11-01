@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
   <head>
 
@@ -100,6 +100,19 @@
           </ol>
 
           <!-- DataTables Example -->
+
+          <?php 
+          	require_once("lib/db_connect.php");
+		    $db = Conectar::conexion();
+		    $sql = 'CALL sp_getCareers()';
+	        $stmt = $db->prepare($sql);
+	        $stmt->execute();
+	        $infoCarreras = $stmt->fetchAll();
+
+	        
+          ?>
+
+
           <div class="card mb-3">
             <div class="card-header">
               <i class="fas fa-table"></i>
@@ -110,26 +123,23 @@
                   <thead>
                     <tr>
                       <th>Nombre Carrera</th>
-                      <th>Sedes</th>
                       <th>Escuela</th>
                     </tr>
                   </thead>
                   <tbody>
+                  	<?php 
+			          foreach($infoCarreras as $fila):
+			        ?>
+
                     <tr>
-                      <td>Ing. en Computación</td>
-                      <td>Cartago</td>
-                      <td>Escuela de Computación</td>
+                      <td> <?php  echo $fila["name"]?> </td>
+                      <td> <?php  echo $fila["school"]?> </td>
                     </tr>
-                    <tr>
-                        <td>Ing. en Computación</td>
-                        <td>San José</td>
-                        <td>Escuela de Computación</td>
-                    </tr>
-                    <tr>
-                        <td>Ing. en Computación</td>
-                        <td>Alajuela</td>
-                        <td>Escuela de Computación</td>
-                    </tr>
+
+                    <?php
+			        endforeach
+			        ?>
+
                   </tbody>
                 </table>
               </div>
