@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin - Login</title>
+    <title>SB Admin - Inicio Sesión</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
@@ -28,7 +28,7 @@
 
     <div class="container">
       <div class="card card-login mx-auto mt-5">
-        <div class="card-header">Login</div>
+        <div class="card-header">Inicio Sesión</div>
         <div class="card-body">
           <form method="post">
             <div class="form-group">
@@ -39,15 +39,15 @@
             </div>
             <div class="form-group">
               <div class="form-label-group">
-                <input type="password" id="inputPassword" name = "password" class="form-control" placeholder="Password" required="required">
-                <label for="inputPassword">Password</label>
+                <input type="password" id="inputPassword" name = "password" class="form-control" placeholder="Contraseña" required="required">
+                <label for="inputPassword">Contraseña</label>
               </div>
             </div>
             <div class="form-group">
               <div class="checkbox">
                 <label>
                   <input type="checkbox" value="remember-me">
-                  Remember Password
+                  Recordar Contraseña
                 </label>
               </div>
             </div>
