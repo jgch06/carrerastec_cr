@@ -102,8 +102,8 @@
       echo $carrera;
       echo $escuela;
 
-      $direccion = "http://carrerastec-cr.herokuapp.com/web_services/AMCareer/Images/" . $carrera."/";
-      $url = $direccion . $_FILES['file']['tempname'];
+      $direccion = "web_services/AMCareer/Images/" . $carrera."/";
+      $url = $direccion . $_FILES['file']['name'];
 
       echo "-";
       echo $direccion;
