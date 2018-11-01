@@ -128,6 +128,9 @@
                     </tr>
                     </thead>
                     <tbody>
+                    <?php 
+                      foreach($infoCarreras as $fila):
+                    ?>
                     <tr>
                         <td> <?php  echo $fila["name"]?> </td>
                         <td> <?php  echo $fila["school"]?> </td>

@@ -30,32 +30,37 @@
 
     <div class="container">
       <div class="card card-register mx-auto mt-5">
-        <div class="card-header">Register an Account</div>
+        <div class="card-header">Registrar una carrera</div>
         <div class="card-body">
           <form>
             <div class="form-group">
               <div class="form-row">
                 <div class="col-md-6">
                   <div class="form-label-group">
-                    <input type="text" id="firstName" class="form-control" placeholder="First name" required="required" autofocus="autofocus">
-                    <label for="firstName">First name</label>
+                    <input type="text" id="firstName" class="form-control" placeholder="Nombre de la carrera" required="required" autofocus="autofocus">
+                    <label for="firstName">Carrera</label>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-label-group">
-                    <input type="text" id="lastName" class="form-control" placeholder="Last name" required="required">
-                    <label for="lastName">Last name</label>
+                    <input type="text" id="lastName" class="form-control" placeholder="Nombre de la escuela" required="required">
+                    <label for="lastName">Escuela</label>
                   </div>
                 </div>
               </div>
             </div>
             <div class="form-group">
               <div class="form-label-group">
-                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="required">
-                <label for="inputEmail">Email address</label>
+                <label for="avatar">Imagen de la carrera:</label>
+                <input type="file"
+               id="avatar" name="avatar"
+               accept="image/png"/>
+
+                <!--<input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="required">
+                <label for="file">Subir imagen</label>-->
               </div>
             </div>
-            <div class="form-group">
+            <!--<div class="form-group">
               <div class="form-row">
                 <div class="col-md-6">
                   <div class="form-label-group">
@@ -70,12 +75,12 @@
                   </div>
                 </div>
               </div>
-            </div>
-            <a class="btn btn-primary btn-block" href="login.php">Register</a>
+            </div>-->
+            <a class="btn btn-primary btn-block" href="inicio.php">Register</a>
           </form>
           <div class="text-center">
-            <a class="d-block small mt-3" href="login.php">Login Page</a>
-            <a class="d-block small" href="edit.php">Forgot Password?</a>
+            <a class="d-block small mt-3" href="inicio.php">Inicio</a>
+            <!--<a class="d-block small" href="edit.php">Forgot Password?</a>-->
           </div>
         </div>
       </div>
