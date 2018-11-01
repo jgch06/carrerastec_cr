@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
   <head>
 
@@ -54,10 +54,10 @@
             
             <button class="btn btn-primary btn-block" name = "ingresar">Login</button>
           </form>
-          <div class="text-center">
+          <!--<div class="text-center">
             <a class="d-block small mt-3" href="register.php">Register an Account</a>
             <a class="d-block small" href="forgot-password.php">Forgot Password?</a>
-          </div>
+          </div>-->
         </div>
       </div>
     </div>
