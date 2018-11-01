@@ -32,18 +32,18 @@
       <div class="card card-register mx-auto mt-5">
         <div class="card-header">Registrar una carrera</div>
         <div class="card-body">
-          <form>
+          <form enctype="multipart/form-data" method="POST">
             <div class="form-group">
               <div class="form-row">
                 <div class="col-md-6">
                   <div class="form-label-group">
-                    <input type="text" id="firstName" class="form-control" placeholder="Nombre de la carrera" required="required" autofocus="autofocus">
+                    <input type="text" id="firstName" name = "carrera" class="form-control" placeholder="Nombre de la carrera" required="required" autofocus="autofocus">
                     <label for="firstName">Carrera</label>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-label-group">
-                    <input type="text" id="lastName" class="form-control" placeholder="Nombre de la escuela" required="required">
+                    <input type="text" id="lastName" name = "escuela" class="form-control" placeholder="Nombre de la escuela" required="required">
                     <label for="lastName">Escuela</label>
                   </div>
                 </div>
@@ -54,8 +54,10 @@
                 <label for="avatar">Imagen de la carrera:</label>
                 <br><br>
                 <input type="file"
-               id="avatar" name="avatar"
+               id="file" name="file"
                accept="image/png"/>
+
+
 
                 <!--<input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="required">
                 <label for="file">Subir imagen</label>-->
@@ -86,6 +88,39 @@
         </div>
       </div>
     </div>
+
+    <?php
+
+      require_once("lib/db_connect.php");
+      $db = Conectar::conexion();
+
+      $carrera = $_GET['carrera'];
+      $escuela = $_GET['escuela'];
+
+      $direccion = "http://carrerastec-cr.herokuapp.com/web_services/AMCareer/Images/".$carrera."/";
+      $url = $direccion.$_FILES['file']['name']);
+
+      if (move_uploaded_file($_FILES['file']['tmp_name'], $url) {
+          $sql = 'CALL agregarCarrera(?,?,?)';
+          $stmt = $db->prepare($sql);
+          $stmt->bindParam(1, $carrera, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
+          $stmt->bindParam(2, $escuela, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
+          $stmt->bindParam(3, $url, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
+          $stmt->execute();
+
+          echo ' <script language="javascript">
+                             alert("La carrera se agregó con éxito.");
+                             window.location="regiter.php";
+                        </script>';
+
+      } else {
+          echo ' <script language="javascript">
+                             alert("Error en la imagen.");
+                             window.location="regiter.php";
+                        </script>';
+      }
+
+    ?>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
