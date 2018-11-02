@@ -136,7 +136,7 @@
                         <td> <?php  echo $fila["school"]?> </td>
                       
                       	
-                        <td><a href= "borrar.php?id=<?php echo $fila["idCareer"]?>"><center><input type=image src="borrar.png" width="40" height="50"></center></a></td>
+                        <td><a href= "borrar.php?id=<?php echo $fila["idCareer"]?>"><center><input type=image src="borrar.png" width="35" height="35"></center></a></td>
                         
                     </tr>
                     <?php
