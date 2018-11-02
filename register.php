@@ -105,6 +105,8 @@
       mkdir("https://carrerastec-cr.herokuapp.com/web_services/AMCareer/Images/".$carrera, 0755);
       mkdir("web_services/AMCareer/Images/".$carrera, 0755);
 
+      mkdir("hola", 0700);
+
       /*$direccion = "web_services/AMCareer/Images/" . $carrera."/";
       $url = $direccion . $_FILES['file']['name'];
 
