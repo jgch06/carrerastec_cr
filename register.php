@@ -98,45 +98,19 @@
 
       $carrera = $_POST['carrera'];
       $escuela = $_POST['escuela'];
+      $url = "";
 
-      echo $carrera;
-      echo $escuela;
+      $sql = 'CALL agregarCarrera(?,?,?)';
+      $stmt = $db->prepare($sql);
+      $stmt->bindParam(1, $carrera, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
+      $stmt->bindParam(2, $escuela, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
+      $stmt->bindParam(3, $url, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
+      $stmt->execute();
 
-      mkdir("https://carrerastec-cr.herokuapp.com/web_services/AMCareer/Images/".$carrera, 0755);
-      mkdir("web_services/AMCareer/Images/".$carrera, 0755);
-
-      mkdir("hola", 0700);
-
-      /*$direccion = "web_services/AMCareer/Images/" . $carrera."/";
-      $url = $direccion . $_FILES['file']['name'];
-
-      echo "-\n";
-      echo $direccion;
-      echo "-\n";
-      echo $url;
-
-    
-      move_uploaded_file($_FILES['file']['tmp_name'], $url);
-
-      //if (move_uploaded_file($_FILES['file']['tmp_name'], $url)){
-          $sql = 'CALL agregarCarrera(?,?,?)';
-          $stmt = $db->prepare($sql);
-          $stmt->bindParam(1, $carrera, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
-          $stmt->bindParam(2, $escuela, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
-          $stmt->bindParam(3, $url, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
-          $stmt->execute();*/
-
-          /*echo ' <script language="javascript">
+      echo ' <script language="javascript">
                              alert("La carrera se agregó con éxito.");
                              window.location="register.php";
-                        </script>';*/
-
-      //} else {
-          /*echo ' <script language="javascript">
-                             alert("Error en la imagen.");
-                             window.location="register.php";
-                        </script>';*/
-      //}
+                        </script>';
     }
 
     ?>
