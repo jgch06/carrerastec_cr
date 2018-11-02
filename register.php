@@ -49,20 +49,14 @@
                 </div>
               </div>
             </div>
-            <div class="form-group">
-              <div class="form-label-group">
-                <label for="avatar">Imagen de la carrera:</label>
-                <br><br>
-                <input type="file"
-               id="file" name="file"
-               accept="image/png"/>
+            <!--<div class="form-group">
 
 
 
-                <!--<input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="required">
-                <label for="file">Subir imagen</label>-->
+                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="required">
+                <label for="file">Subir imagen</label>
               </div>
-            </div>
+            </div>-->
             <!--<div class="form-group">
               <div class="form-row">
                 <div class="col-md-6">
