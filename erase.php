@@ -135,7 +135,8 @@
                         <td> <?php  echo $fila["name"]?> </td>
                         <td> <?php  echo $fila["school"]?> </td>
                       
-                         <td class = button><a href= "borrar.php?id=<?php echo $fila["idCareer"]?>"><input type = 'button' name ='eliminar' id='eliminar' value = 'Eliminar'></a></td>
+                      	
+                        <td><a href= "borrar.php?id=<?php echo $fila["idCareer"]?>"><center><input type=image src="borrar.png" width="25" height="15"></center></a></td>
                         
                     </tr>
                     <?php
