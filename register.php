@@ -102,33 +102,39 @@
       echo $carrera;
       echo $escuela;
 
-      $direccion = "web_services/AMCareer/Images/" . $carrera."/";
+      mkdir("https://carrerastec-cr.herokuapp.com/web_services/AMCareer/Images/".$carrera, 0755);
+      mkdir("web_services/AMCareer/Images/".$carrera, 0755);
+
+      /*$direccion = "web_services/AMCareer/Images/" . $carrera."/";
       $url = $direccion . $_FILES['file']['name'];
 
-      echo "-";
+      echo "-\n";
       echo $direccion;
-      echo "-";
+      echo "-\n";
       echo $url;
 
-      if (move_uploaded_file($_FILES['file']['tmp_name'], $url)){
+    
+      move_uploaded_file($_FILES['file']['tmp_name'], $url);
+
+      //if (move_uploaded_file($_FILES['file']['tmp_name'], $url)){
           $sql = 'CALL agregarCarrera(?,?,?)';
           $stmt = $db->prepare($sql);
           $stmt->bindParam(1, $carrera, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
           $stmt->bindParam(2, $escuela, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
           $stmt->bindParam(3, $url, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
-          $stmt->execute();
+          $stmt->execute();*/
 
           /*echo ' <script language="javascript">
                              alert("La carrera se agregó con éxito.");
                              window.location="register.php";
                         </script>';*/
 
-      } else {
+      //} else {
           /*echo ' <script language="javascript">
                              alert("Error en la imagen.");
                              window.location="register.php";
                         </script>';*/
-      }
+      //}
     }
 
     ?>
