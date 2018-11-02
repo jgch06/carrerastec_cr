@@ -124,7 +124,7 @@
                     <tr>
                         <th>Nombre Carrera</th>
                         <th>Escuela</th>
-                        <th>Seleccion</th>
+                        <th>Eliminar</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -134,12 +134,9 @@
                     <tr>
                         <td> <?php  echo $fila["name"]?> </td>
                         <td> <?php  echo $fila["school"]?> </td>
-                        <td>
-                            <label class="container">
-                                <input type="checkbox" checked="checked">
-                                <span class="checkmark"></span>
-                            </label>
-                        </td>
+                      
+                         <td class = button><a href= "borrar.php?id=<?php echo $fila["idCareer"]?>"><input type = 'button' name ='eliminar' id='eliminar' value = 'Eliminar'></a></td>
+                        
                     </tr>
                     <?php
                     endforeach
