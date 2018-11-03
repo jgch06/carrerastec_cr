@@ -107,6 +107,7 @@ if (isset($_POST['editar'])) {
     require_once("lib/db_connect.php");
     $db = Conectar::conexion();
 
+    $id = $_GET["id"];
     $carrera = $_POST['carrera'];
     $imagen = $_POST['imagen'];
     $escuela = $_POST['escuela'];
