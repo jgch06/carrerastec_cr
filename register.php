@@ -135,12 +135,20 @@
       $stmt->execute();
      
       $seccionDescripcion = "Descripción de la carrera";
+      $imagenDescripcion ="";
       $sql = 'CALL crearSeccion(?,?,?,?)';
       $stmt = $db->prepare($sql);
       $stmt->bindParam(1, $carrera, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
       $stmt->bindParam(2, $seccionDescripcion, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
       $stmt->bindParam(3, $descripcion, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 1000);
-      $stmt->bindParam(4, $imagen, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
+      $stmt->bindParam(4, $imagenDescripcion, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
+      $stmt->execute();
+      
+      $sql = 'CALL crearSubSeccionVideo(?,?,?)';
+      $stmt = $db->prepare($sql);
+      $stmt->bindParam(1, $carrera, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
+      $stmt->bindParam(2, $seccionBienvenida, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
+      $stmt->bindParam(3, $video, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
       $stmt->execute();
       
       $seccionMision = "Misión";
