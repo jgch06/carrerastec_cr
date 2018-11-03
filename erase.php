@@ -132,10 +132,7 @@
                     <tr>
                         <td> <?php  echo $fila["name"]?> </td>
                         <td> <?php  echo $fila["school"]?> </td>
-                      
-                      	
-                        <td><a href= "borrar.php?id=<?php echo $fila["idCareer"]?>"><center><input type=image src="borrar.png" width="35" height="35"></center></a></td>
-                        
+                        <td><a><center><input type=image src="borrar.png" width="35" height="35" data-toggle="modal" data-target="#eraseModal"></center></a></td>
                     </tr>
                     <?php
                     endforeach
@@ -183,6 +180,25 @@
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
                     <a class="btn btn-primary" href="login.php">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Erase Modal-->
+    <div class="modal fade" id="eraseModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">¿Seguro que desea borrar la carrera?</h5>
+                    <button class="erase" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Seleccione borrar si está seguro.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                    <a class="btn btn-primary" href= "borrar.php?id=<?php echo $fila["idCareer"]?>"> Borrar </a>
                 </div>
             </div>
         </div>
