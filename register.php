@@ -49,35 +49,10 @@
                 </div>
               </div>
             </div>
-            <!--<div class="form-group">
-
-
-
-                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="required">
-                <label for="file">Subir imagen</label>
-              </div>
-            </div>-->
-            <!--<div class="form-group">
-              <div class="form-row">
-                <div class="col-md-6">
-                  <div class="form-label-group">
-                    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="required">
-                    <label for="inputPassword">Password</label>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-label-group">
-                    <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm password" required="required">
-                    <label for="confirmPassword">Confirm password</label>
-                  </div>
-                </div>
-              </div>
-            </div>-->
             <button class="btn btn-primary btn-block" name = "registrar" href="inicio.php">Registrar</button>
           </form>
           <div class="text-center">
             <a class="d-block small mt-3" href="inicio.php">Regresar</a>
-            <!--<a class="d-block small" href="edit.php">Forgot Password?</a>-->
           </div>
         </div>
       </div>
