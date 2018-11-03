@@ -107,26 +107,60 @@
       require_once("lib/db_connect.php");
       $db = Conectar::conexion();
 
-        $carrera = $_POST['carrera'];
-        $imagen = $_POST['imagen'];
-        $escuela = $_POST['escuela'];
-        $descripcion = $_POST['descripcion'];
-        $video = $_POST['video'];
-        $vision = $_POST['vision'];
-        $mision = $_POST['mision'];
-        $url = "";
+      $carrera = $_POST['carrera'];
+      $imagen = $_POST['imagen'];
+      $escuela = $_POST['escuela'];
 
-        $sql = 'CALL agregarCarrera(?,?,?,?,?,?,?,?)';
-        $stmt = $db->prepare($sql);
-        $stmt->bindParam(1, $carrera, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
-        $stmt->bindParam(2, $imagen, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
-        $stmt->bindParam(3, $descripcion, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
-        $stmt->bindParam(4, $escuela, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
-        $stmt->bindParam(5, $video, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
-        $stmt->bindParam(6, $vision, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
-        $stmt->bindParam(7, $mision, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
-        $stmt->bindParam(8, $url, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
-        $stmt->execute();
+      $descripcion = $_POST['descripcion'];
+      $video = $_POST['video'];
+      $vision = $_POST['vision'];
+      $mision = $_POST['mision'];
+
+      $sql = 'CALL agregarCarrera(?,?,?)';
+      $stmt = $db->prepare($sql);
+      $stmt->bindParam(1, $carrera, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
+      $stmt->bindParam(2, $escuela, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
+      $stmt->bindParam(3, $imagen, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
+      $stmt->execute();
+        
+      
+      $seccionBienvenida = "Bienvenida";
+      $vacio = "";
+      $sql = 'CALL crearSeccion(?,?,?,?)';
+      $stmt = $db->prepare($sql);
+      $stmt->bindParam(1, $carrera, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
+      $stmt->bindParam(2, $seccionBienvenida, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
+      $stmt->bindParam(3, $vacio, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 1000);
+      $stmt->bindParam(4, $imagen, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
+      $stmt->execute();
+     
+      $seccionDescripcion = "Descripción de la carrera";
+      $sql = 'CALL crearSeccion(?,?,?,?)';
+      $stmt = $db->prepare($sql);
+      $stmt->bindParam(1, $carrera, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
+      $stmt->bindParam(2, $seccionDescripcion, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
+      $stmt->bindParam(3, $descripcion, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 1000);
+      $stmt->bindParam(4, $imagen, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
+      $stmt->execute();
+      
+      $seccionMision = "Misión";
+      $sql = 'CALL crearSubSeccion(?,?,?,?)';
+      $stmt = $db->prepare($sql);
+      $stmt->bindParam(1, $carrera, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
+      $stmt->bindParam(2, $seccionBienvenida, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
+      $stmt->bindParam(3, $seccionMision, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
+      $stmt->bindParam(4, $mision, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 1000);
+      $stmt->execute();
+      
+      $seccionMision = "Visión";
+      $sql = 'CALL crearSubSeccion(?,?,?,?)';
+      $stmt = $db->prepare($sql);
+      $stmt->bindParam(1, $carrera, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
+      $stmt->bindParam(2, $seccionBienvenida, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
+      $stmt->bindParam(3, $seccionMision, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
+      $stmt->bindParam(4, $vision, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 1000);
+      $stmt->execute();
+        
 
       echo ' <script language="javascript">
                              alert("La carrera se agregó con éxito.");
