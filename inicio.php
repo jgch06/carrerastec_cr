@@ -37,7 +37,7 @@
       <!-- Navbar Search -->
       <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
         <div class="input-group">
-          <input type="text" class="form-control" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+          <input type="text" class="form-control" placeholder="Buscar..." aria-label="Search" aria-describedby="basic-addon2">
           <div class="input-group-append">
             <button class="btn btn-primary" type="button">
               <i class="fas fa-search"></i>
@@ -53,9 +53,6 @@
                 <i class="fas fa-user-circle fa-fw"></i>
             </a>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-            <a class="dropdown-item" href="#">Configuración</a>
-            <a class="dropdown-item" href="#">Registro de actividad</a>
-            <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="logout.php" data-toggle="modal" data-target="#logoutModal">Salir</a>
           </div>
         </li>
@@ -177,10 +174,10 @@
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">Seleccione 'logout' si está listo para abandonar su sesión.</div>
+                <div class="modal-body">Seleccione 'salir' si está listo para abandonar su sesión.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-                    <a class="btn btn-primary" href="login.php">Logout</a>
+                    <a class="btn btn-primary" href="login.php">Salir</a>
                 </div>
             </div>
         </div>
