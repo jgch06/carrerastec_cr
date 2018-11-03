@@ -129,7 +129,7 @@ if (isset($_POST['editar'])) {
         $stmt = $db->prepare($sql);
         $stmt->bindParam(1, $id, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 11);
         $stmt->bindParam(2, $campo, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
-        $stmt->bindParam(3, $descripcion, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
+        $stmt->bindParam(3, $descripcion, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 1000);
     }
     
     if($vision != ""){
@@ -140,7 +140,7 @@ if (isset($_POST['editar'])) {
         $stmt->bindParam(1, $id, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 11);
         $stmt->bindParam(2, $campo, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
         $stmt->bindParam(3, $subCampo, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
-        $stmt->bindParam(4, $vision, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
+        $stmt->bindParam(4, $vision, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 1000);
     }
     
     if($mision != ""){
@@ -151,7 +151,7 @@ if (isset($_POST['editar'])) {
         $stmt->bindParam(1, $id, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 11);
         $stmt->bindParam(2, $campo, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
         $stmt->bindParam(3, $subCampo, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
-        $stmt->bindParam(4, $mision, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
+        $stmt->bindParam(4, $mision, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 1000);
     }
     
     if($video != ""){
