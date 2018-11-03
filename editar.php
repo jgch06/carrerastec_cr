@@ -35,16 +35,26 @@
             <form enctype="multipart/form-data" method="POST">
                 <div class="form-group">
                     <div class="form-row">
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <div class="form-label-group">
                                 <input type="text" id="carrera" name = "carrera" class="form-control" placeholder="Nombre de la carrera">
                                 <label for="carrera">Nombre de la Carrera</label>
                             </div>
                         </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-row">
                         <div class="col-md-6">
                             <div class="form-label-group">
                                 <input type="text" id="imagen" name = "imagen" class="form-control" placeholder="URL de la imagen">
                                 <label for="imagen">URL de la imagen</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-label-group">
+                                <input type="text" id="escuela" name = "escuela" class="form-control" placeholder="Escuela de la Carrera">
+                                <label for="escuela">Escuela de la Carrera</label>
                             </div>
                         </div>
                     </div>
@@ -99,6 +109,7 @@ if (isset($_POST['editar'])) {
 
     $carrera = $_POST['carrera'];
     $imagen = $_POST['imagen'];
+    $escuela = $_POST['escuela'];
     $descripcion = $_POST['descripcion'];
     $video = $_POST['video'];
     $vision = $_POST['vision'];
@@ -109,9 +120,10 @@ if (isset($_POST['editar'])) {
     $stmt->bindParam(1, $carrera, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
     $stmt->bindParam(2, $imagen, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
     $stmt->bindParam(3, $descripcion, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
-    $stmt->bindParam(4, $video, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
-    $stmt->bindParam(5, $vision, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
-    $stmt->bindParam(6, $mision, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
+    $stmt->bindParam(4, $escuela, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
+    $stmt->bindParam(5, $video, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
+    $stmt->bindParam(6, $vision, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
+    $stmt->bindParam(7, $mision, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
     $stmt->execute();
 
     echo ' <script language="javascript">
