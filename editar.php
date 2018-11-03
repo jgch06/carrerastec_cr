@@ -44,7 +44,7 @@
                         <div class="col-md-6">
                             <div class="form-label-group">
                                 <input type="text" id="imagen" name = "imagen" class="form-control" placeholder="URL de la imagen">
-                                <label for="carrera">URL de la imagen</label>
+                                <label for="imagen">URL de la imagen</label>
                             </div>
                         </div>
                     </div>
