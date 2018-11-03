@@ -172,8 +172,10 @@ if (isset($_POST['editar'])) {
 
     echo ' <script language="javascript">
                              alert("La carrera se editó con éxito.");
-                             window.location="editar.php";
+                             //window.location="inicio.php";
                         </script>';
+    
+    header('location: editar.php?id='.$id);
 }
 
 ?>
