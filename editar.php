@@ -124,6 +124,16 @@ if (isset($_POST['editar'])) {
     $stmt->bindParam(4, $imagen, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
     $stmt->execute();
     
+    if($imagen != ""){
+        $campo = "Bienvenida";
+        $sql = 'CALL editarImagenSeccion(?,?,?)';
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam(1, $id, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 11);
+        $stmt->bindParam(2, $campo, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
+        $stmt->bindParam(3, $imagen, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
+        $stmt->execute();  
+    }
+    
     if($descripcion != ""){
         $campo = "Descripción de la carrera";
         $sql = 'CALL editarSeccionCarrera(?,?,?)';
