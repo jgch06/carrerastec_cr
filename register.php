@@ -152,12 +152,12 @@
       $stmt->bindParam(4, $mision, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 1000);
       $stmt->execute();
       
-      $seccionMision = "Visión";
+      $seccionVision = "Visión";
       $sql = 'CALL crearSubSeccion(?,?,?,?)';
       $stmt = $db->prepare($sql);
       $stmt->bindParam(1, $carrera, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
       $stmt->bindParam(2, $seccionBienvenida, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
-      $stmt->bindParam(3, $seccionMision, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
+      $stmt->bindParam(3, $seccionVision, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
       $stmt->bindParam(4, $vision, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 1000);
       $stmt->execute();
         
