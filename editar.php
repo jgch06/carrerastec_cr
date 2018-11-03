@@ -115,16 +115,54 @@ if (isset($_POST['editar'])) {
     $vision = $_POST['vision'];
     $mision = $_POST['mision'];
 
-    $sql = 'CALL editarCarrera(?,?,?,?,?,?)';
+    $sql = 'CALL editarCarrera(?,?,?,?)';
     $stmt = $db->prepare($sql);
-    $stmt->bindParam(1, $carrera, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
-    $stmt->bindParam(2, $imagen, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
-    $stmt->bindParam(3, $descripcion, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
-    $stmt->bindParam(4, $escuela, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
-    $stmt->bindParam(5, $video, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
-    $stmt->bindParam(6, $vision, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
-    $stmt->bindParam(7, $mision, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
-    $stmt->execute();
+    $stmt->bindParam(1, $id, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 11);
+    $stmt->bindParam(2, $carrera, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
+    $stmt->bindParam(3, $escuela, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
+    $stmt->bindParam(4, $imagen, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
+    
+    if($descripcion != ""){
+        $campo = "Descripción de la carrera";
+        $sql = 'CALL editarSeccionCarrera(?,?,?)';
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam(1, $id, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 11);
+        $stmt->bindParam(2, $campo, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
+        $stmt->bindParam(3, $descripcion, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
+    }
+    
+    if($vision != ""){
+        $campo = "Bienvenida";
+        $subCampo = "Visión";
+        $sql = 'CALL editarSubSeccionCarrera(?,?,?,?)';
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam(1, $id, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 11);
+        $stmt->bindParam(2, $campo, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
+        $stmt->bindParam(3, $subCampo, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
+        $stmt->bindParam(4, $vision, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
+    }
+    
+    if($mision != ""){
+        $campo = "Bienvenida";
+        $subCampo = "Misión";
+        $sql = 'CALL editarSubSeccionCarrera(?,?,?,?)';
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam(1, $id, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 11);
+        $stmt->bindParam(2, $campo, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
+        $stmt->bindParam(3, $subCampo, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
+        $stmt->bindParam(4, $mision, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
+    }
+    
+    if($video != ""){
+        $campo = "Bienvenida";
+        $sql = 'CALL editarVideoCarrera(?,?,?)';
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam(1, $id, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 11);
+        $stmt->bindParam(2, $campo, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
+        $stmt->bindParam(3, $video, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);      
+        
+    }
+   
 
     echo ' <script language="javascript">
                              alert("La carrera se editó con éxito.");
