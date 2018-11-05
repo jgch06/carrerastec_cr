@@ -91,7 +91,7 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn btn-primary btn-block" name = "registrar" href="inicio.php">Registar</button>
+                <button class="btn btn-primary btn-block" name = "registrar" href="inicio.php">Registrar</button>
             </form>
           <div class="text-center">
             <a class="d-block small mt-3" href="inicio.php">Regresar</a>
