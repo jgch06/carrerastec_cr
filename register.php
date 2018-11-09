@@ -124,7 +124,7 @@
       $stmt->execute();
         
       
-      $seccionBienvenida = "Bienvenida";
+      /*$seccionBienvenida = "Bienvenida";
       $vacio = "";
       $sql = 'CALL crearSeccion(?,?,?,?)';
       $stmt = $db->prepare($sql);
@@ -167,7 +167,7 @@
       $stmt->bindParam(2, $seccionBienvenida, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
       $stmt->bindParam(3, $seccionVision, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
       $stmt->bindParam(4, $vision, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 1000);
-      $stmt->execute();
+      $stmt->execute();*/
         
 
       echo ' <script language="javascript">
