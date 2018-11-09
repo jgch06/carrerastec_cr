@@ -116,7 +116,7 @@
       $vision = $_POST['vision'];
       $mision = $_POST['mision'];
 
-      $sql = 'CALL agregarCarrera(?,?,?)';
+      $sql = 'CALL crearCarrera(?,?,?)';
       $stmt = $db->prepare($sql);
       $stmt->bindParam(1, $carrera, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
       $stmt->bindParam(2, $escuela, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
