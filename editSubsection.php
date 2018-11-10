@@ -30,68 +30,26 @@
 
 <div class="container">
     <div class="card card-register mx-auto mt-5">
-        <div class="card-header">Editar la carrera</div>
+        <div class="card-header">Editar: <?php $name = $_GET["name"]?></div>
         <div class="card-body">
             <form enctype="multipart/form-data" method="POST">
                 <div class="form-group">
                     <div class="form-row">
                         <div class="col-md-12">
                             <div class="form-label-group">
-                                <input type="text" id="carrera" name = "carrera" class="form-control" placeholder="Nombre de la carrera">
-                                <label for="carrera">Nombre de la Carrera</label>
+                                <input type="text" id="subseccion" name = "subseccion" class="form-control" placeholder="Texto de la subsección">
+                                <label for="subseccion">Texto de la subsección</label>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class="form-row">
-                        <div class="col-md-6">
-                            <div class="form-label-group">
-                                <input type="text" id="imagen" name = "imagen" class="form-control" placeholder="URL de la imagen">
-                                <label for="imagen">URL de la imagen</label>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-label-group">
-                                <input type="text" id="escuela" name = "escuela" class="form-control" placeholder="Escuela de la Carrera">
-                                <label for="escuela">Escuela de la Carrera</label>
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
                 <div class="form-group">
-                    <div class="form-row">
-                        <div class="col-md-6">
-                            <div class="form-label-group">
-                                <input type="text" id="descripcion" name = "descripcion" class="form-control" placeholder="Descripción de la carrera">
-                                <label for="descripcion">Descripción de la carrera</label>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-label-group">
-                                <input type="text" id="video" name = "video" class="form-control" placeholder="URL del vídeo">
-                                <label for="video">URL del vídeo</label>
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
-                <div class="form-group">
-                    <div class="form-row">
-                        <div class="col-md-6">
-                            <div class="form-label-group">
-                                <input type="text" id="mision" name = "mision" class="form-control" placeholder="Misión de la carrera">
-                                <label for="mision">Misión de la carrera</label>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-label-group">
-                                <input type="text" id="vision" name = "vision" class="form-control" placeholder="Visión de la carrera">
-                                <label for="vision">Visión de la carrera</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <button class="btn btn-primary btn-block" name = "editar" href="inicio.php">Aceptar</button>
+                <button class="btn btn-primary btn-block" name = "editar" href="subsections.php?id=<?php echo $fila["idSection"]?>&name=<?php echo $fila["name"]?>">Aceptar</button>
             </form>
             <div class="text-center">
                 <a class="d-block small mt-3" href="inicio.php">Regresar</a>

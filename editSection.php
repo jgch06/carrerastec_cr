@@ -41,20 +41,24 @@
             <form enctype="multipart/form-data" method="POST">
                 <div class="form-group">
                     <div class="form-row">
-                        <div class="col-md-12">
+                        <div class="col-md-6">
                             <div class="form-label-group">
-                                <input type="text" id="descripcion" name = "descripcion" class="form-control" placeholder="Editar la Descripción">
-                                <label for="descripcion"> Editar la Descripción </label>
+                                <input type="text"id="descripcion" name = "descripcion" class="form-control" placeholder="Descripción">
+                                <label for="descripcion">Descripción</label>
                             </div>
                         </div>
-                </div>
-                <div class="form-group">
 
+                        <div class="col-md-6">
+                            <div class="form-label-group">
+                                <input type="text" id="imagen" name = "imagen" class="form-control" placeholder="URL de la imagen">
+                                <label for="imagen">URL de la imagen</label>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <button class="btn btn-primary btn-block" name = "editar" href="sections.php">Aceptar</button>
             </form>
             <div class="text-center">
-                <a class="d-block small mt-3" href="editSubsection.php">Editar Subsección</a>
                 <a class="d-block small mt-3" href="sections.php?id=<?php echo $_GET["id"]?>&name=<?php echo $_GET["name"]?>">Regresar</a>
             </div>
         </div>
@@ -88,8 +92,6 @@ if (isset($_POST['editar'])) {
         $stmt->bindParam(1, $idSection, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 11);
         $stmt->bindParam(2, $imagen, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
         $stmt->execute();
-
-
     }*/
 
 

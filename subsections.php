@@ -97,11 +97,11 @@
           	require_once("lib/db_connect.php");
 		    $db = Conectar::conexion();
             $id = $_GET["id"];
-		    $sql = 'CALL sp_getCareerSections(?)';
+		    $sql = 'CALL sp_getSubsections(?)';
 	        $stmt = $db->prepare($sql);
             $stmt->bindParam(1, $id, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 11);
 	        $stmt->execute();
-	        $sp_getCareerSections = $stmt->fetchAll();
+	        $sp_getCareerSubsections = $stmt->fetchAll();
           ?>
 
 
@@ -119,22 +119,22 @@
                         <th>Nombre Sección</th>
                         <th>Editar</th>
                         <th>Borrar</th>
-                        <th>Ver Subsecciones</th>
-                        <th>Agregar Subsecciones</th>
                     </tr>
                   </thead>
                   <tbody>
                   	<?php
-			          foreach($sp_getCareerSections as $fila):
+			          foreach($sp_getCareerSubsections as $fila):
 			        ?>
 
                     <tr>
                         <td> <?php  echo $fila["name"]?> </td>
-                        <td><a href= "editSection.php?id=<?php echo $id?>&idSection=<?php echo $fila["idSection"]?>&name=<?php echo $name?>&nameSection=<?php echo $fila["name"]?>"><center><input type=image src="buttons/editb.png" width="35" height="35"></center></a></td>
+                        <td><a href= "editSubsection.php.php?id=<?php echo $id = $_GET["id"]?>
+                                                        &name=<?php echo $name = $_GET["name"]?>
+                                                        &idSection=<?php echo $idSection = $_GET["idSection"]?>
+                                                        &nameSection=<?php echo $nameSection = $_GET["nameSection"]?>
+                                                        &idSubsection=<?php echo $fila["idSubsection"]?>
+                                                        &nameSubsection=<?php echo $fila["name"]?>"><center><input type=image src="buttons/editb.png" width="35" height="35"></center></a></td>
                         <td><a><center><input type=image src="buttons/erase.png" width="35" height="35" data-toggle="modal" data-target="#eraseModal"></center></a></td>
-                        <td><a href= "subsections.php?id=<?php echo $id = $_GET["id"]?>&name=<?php echo $name = $_GET["name"]?>&idSection=<?php echo $fila["idSection"]?>&nameSection=<?php echo $fila["name"]?>"><center><input type=image src="buttons/eye.png" width="35" height="35"></center></a></td>
-
-                        <td><a href= "addSubsection.php?id=<?php echo $id = $_GET["id"]?>&name=<?php echo $name = $_GET["name"]?>&idSection=<?php echo $fila["idSection"]?>&nameSection=<?php echo $fila["name"]?>"><center><input type=image src="buttons/add.jpg" width="35" height="35"></center></a></td>
                     </tr>
 
                     <?php
@@ -203,7 +203,7 @@
                 <div class="modal-body">Seleccione borrar si está seguro.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal"> Cancelar </button>
-                     <a class="btn btn-primary" href= "eraseSection.php?id=<?php echo $id?>&idSection=<?php echo $fila["idSection"]?>&name=<?php echo $name?>"> Borrar </a>
+                     <a class="btn btn-primary" href= "eraseSubsection.php?id=<?php echo $id?>&idSection=<?php echo $fila["idSection"]?>&name=<?php echo $name?>"> Borrar </a>
                 </div>
             </div>
         </div>

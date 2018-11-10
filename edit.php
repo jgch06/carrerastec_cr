@@ -115,7 +115,6 @@
                         <th>Escuela</th>
                         <th>Editar Carrera</th>
                         <th>Agregar sección</th>
-                        <th>Ver secciones</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -127,7 +126,6 @@
                         <td> <?php  echo $fila["school"]?> </td>
                         <td><a href= "editar.php?id=<?php echo $fila["idCareer"]?>&name=<?php echo $fila["name"]?>"><center><input type=image src="buttons/edit.png" width="35" height="35"></center></a></td>
                         <td><a href= "addSection.php?id=<?php echo $fila["idCareer"]?>&name=<?php echo $fila["name"]?>"><center><input type=image src="buttons/add.jpg" width="35" height="35"></center></a></td>
-                        <td><a href= "sections.php?id=<?php echo $fila["idCareer"]?>&name=<?php echo $fila["name"]?>"><center><input type=image src="buttons/eye.png" width="35" height="35"></center></a></td>
                     </tr>
                     <?php
                     endforeach
