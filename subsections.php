@@ -128,12 +128,7 @@
 
                     <tr>
                         <td> <?php  echo $fila["name"]?> </td>
-                        <td><a href= "editSubsection.php.php?id=<?php echo $id = $_GET["id"]?>
-                                                        &name=<?php echo $name = $_GET["name"]?>
-                                                        &idSection=<?php echo $idSection = $_GET["idSection"]?>
-                                                        &nameSection=<?php echo $nameSection = $_GET["nameSection"]?>
-                                                        &idSubsection=<?php echo $fila["idSubsection"]?>
-                                                        &nameSubsection=<?php echo $fila["name"]?>"><center><input type=image src="buttons/editb.png" width="35" height="35"></center></a></td>
+                        <td><a href= "editSubsection.php.php?id=<?php echo $id = $_GET["id"]?>&name=<?php echo $name = $_GET["name"]?>&idSection=<?php echo $idSection = $_GET["idSection"]?>&nameSection=<?php echo $nameSection = $_GET["nameSection"]?>&idSubsection=<?php echo $fila["idSubsection"]?>&nameSubsection=<?php echo $fila["name"]?>"><center><input type=image src="buttons/editb.png" width="35" height="35"></center></a></td>
                         <td><a><center><input type=image src="buttons/erase.png" width="35" height="35" data-toggle="modal" data-target="#eraseModal"></center></a></td>
                     </tr>
 
