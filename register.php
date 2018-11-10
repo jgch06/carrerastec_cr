@@ -79,10 +79,6 @@
       $imagen = $_POST['imagen'];
       $escuela = $_POST['escuela'];
 
-      $descripcion = $_POST['descripcion'];
-      $video = $_POST['video'];
-      $vision = $_POST['vision'];
-      $mision = $_POST['mision'];
 
       $sql = 'CALL crearCarrera(?,?,?)';
       $stmt = $db->prepare($sql);
@@ -90,52 +86,6 @@
       $stmt->bindParam(2, $escuela, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
       $stmt->bindParam(3, $imagen, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
       $stmt->execute();
-        
-      
-      /*$seccionBienvenida = "Bienvenida";
-      $vacio = "";
-      $sql = 'CALL crearSeccion(?,?,?,?)';
-      $stmt = $db->prepare($sql);
-      $stmt->bindParam(1, $carrera, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
-      $stmt->bindParam(2, $seccionBienvenida, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
-      $stmt->bindParam(3, $vacio, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 1000);
-      $stmt->bindParam(4, $imagen, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
-      $stmt->execute();
-     
-      $seccionDescripcion = "Descripción de la carrera";
-      $imagenDescripcion ="";
-      $sql = 'CALL crearSeccion(?,?,?,?)';
-      $stmt = $db->prepare($sql);
-      $stmt->bindParam(1, $carrera, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
-      $stmt->bindParam(2, $seccionDescripcion, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
-      $stmt->bindParam(3, $descripcion, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 1000);
-      $stmt->bindParam(4, $imagenDescripcion, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
-      $stmt->execute();
-      
-      $sql = 'CALL crearSubSeccionVideo(?,?,?)';
-      $stmt = $db->prepare($sql);
-      $stmt->bindParam(1, $carrera, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
-      $stmt->bindParam(2, $seccionBienvenida, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
-      $stmt->bindParam(3, $video, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
-      $stmt->execute();
-      
-      $seccionMision = "Misión";
-      $sql = 'CALL crearSubSeccion(?,?,?,?)';
-      $stmt = $db->prepare($sql);
-      $stmt->bindParam(1, $carrera, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
-      $stmt->bindParam(2, $seccionBienvenida, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
-      $stmt->bindParam(3, $seccionMision, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
-      $stmt->bindParam(4, $mision, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 1000);
-      $stmt->execute();
-      
-      $seccionVision = "Visión";
-      $sql = 'CALL crearSubSeccion(?,?,?,?)';
-      $stmt = $db->prepare($sql);
-      $stmt->bindParam(1, $carrera, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
-      $stmt->bindParam(2, $seccionBienvenida, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
-      $stmt->bindParam(3, $seccionVision, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
-      $stmt->bindParam(4, $vision, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 1000);
-      $stmt->execute();*/
         
 
       echo ' <script language="javascript">

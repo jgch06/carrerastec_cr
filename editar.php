@@ -79,10 +79,6 @@ if (isset($_POST['editar'])) {
     $carrera = $_POST['carrera'];
     $imagen = $_POST['imagen'];
     $escuela = $_POST['escuela'];
-    $descripcion = $_POST['descripcion'];
-    $video = $_POST['video'];
-    $vision = $_POST['vision'];
-    $mision = $_POST['mision'];
 
     $sql = 'CALL editarCarrera(?,?,?,?)';
     $stmt = $db->prepare($sql);
@@ -91,69 +87,13 @@ if (isset($_POST['editar'])) {
     $stmt->bindParam(3, $escuela, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
     $stmt->bindParam(4, $imagen, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
     $stmt->execute();
-    
-    /*if($imagen != ""){
-        $campo = "Bienvenida";
-        $sql = 'CALL editarImagenSeccion(?,?,?)';
-        $stmt = $db->prepare($sql);
-        $stmt->bindParam(1, $id, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 11);
-        $stmt->bindParam(2, $campo, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
-        $stmt->bindParam(3, $imagen, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
-        $stmt->execute();  
-    }
-    
-    if($descripcion != ""){
-        $campo = "Descripción de la carrera";
-        $sql = 'CALL editarSeccion(?,?,?)';
-        $stmt = $db->prepare($sql);
-        $stmt->bindParam(1, $id, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 11);
-        $stmt->bindParam(2, $campo, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
-        $stmt->bindParam(3, $descripcion, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 1000);
-        $stmt->execute();
-    }
-    
-    if($vision != ""){
-        $campo = "Bienvenida";
-        $subCampo = "Visión";
-        $sql = 'CALL editarSubSeccion(?,?,?,?)';
-        $stmt = $db->prepare($sql);
-        $stmt->bindParam(1, $id, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 11);
-        $stmt->bindParam(2, $campo, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
-        $stmt->bindParam(3, $subCampo, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
-        $stmt->bindParam(4, $vision, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 1000);
-        $stmt->execute();
-    }
-    
-    if($mision != ""){
-        $campo = "Bienvenida";
-        $subCampo = "Misión";
-        $sql = 'CALL editarSubSeccion(?,?,?,?)';
-        $stmt = $db->prepare($sql);
-        $stmt->bindParam(1, $id, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 11);
-        $stmt->bindParam(2, $campo, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
-        $stmt->bindParam(3, $subCampo, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
-        $stmt->bindParam(4, $mision, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 1000);
-        $stmt->execute();
-    }
-    
-    if($video != ""){
-        $campo = "Bienvenida";
-        $sql = 'CALL editarVideoSeccion(?,?,?)';
-        $stmt = $db->prepare($sql);
-        $stmt->bindParam(1, $id, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 11);
-        $stmt->bindParam(2, $campo, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
-        $stmt->bindParam(3, $video, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);      
-        $stmt->execute();
-        
-    }*/
-   
 
-    echo ' <script language="javascript">
+
+    echo  '<script language="javascript">
                              alert("La carrera se editó con éxito.");
-                             //window.location="inicio.php";
-                        </script>';
+                             </script>';
     
-    header('location: editar.php?id='.$id);
+    header('location: editar.php?id='.$id.'&name='.$carrera);
 }
 
 ?>
