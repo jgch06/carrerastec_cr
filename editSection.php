@@ -36,7 +36,7 @@
 
 <div class="container">
     <div class="card card-register mx-auto mt-5">
-        <div class="card-header">Editar la sección</div>
+        <div class="card-header">Editar: <?php echo $name ?></div>
         <div class="card-body">
             <form enctype="multipart/form-data" method="POST">
                 <div class="form-group">
