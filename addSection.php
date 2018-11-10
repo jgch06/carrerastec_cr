@@ -30,15 +30,15 @@
 
     <div class="container">
       <div class="card card-register mx-auto mt-5">
-        <div class="card-header">Registrar una carrera</div>
+        <div class="card-header">Agregar una sección a <?php echo $name = $_GET["name"]?></div>
         <div class="card-body">
             <form enctype="multipart/form-data" method="POST">
                 <div class="form-group">
                     <div class="form-row">
                         <div class="col-md-12">
                             <div class="form-label-group">
-                                <input type="text" id="carrera" name = "carrera" class="form-control" placeholder="Nombre de la carrera" required = "true">
-                                <label for="carrera">Nombre de la Carrera</label>
+                                <input type="text" id="seccion" name = "seccion" class="form-control" placeholder="Nombre de la Sección" required = "true">
+                                <label for="seccion">Nombre de la Sección</label>
                             </div>
                         </div>
                     </div>
@@ -53,16 +53,16 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-label-group">
-                                <input type="text" id="escuela" name = "escuela" class="form-control" placeholder="Escuela de la Carrera" required = "true">
-                                <label for="escuela">Escuela de la Carrera</label>
+                                <input type="text" id="descripcion" name = "descripcion" class="form-control" placeholder="Descripción de la Sección" required = "true">
+                                <label for="descripcion">Descripción de la Sección</label>
                             </div>
                         </div>
                     </div>
                 </div>
-                <button class="btn btn-primary btn-block" name = "registrar" href="inicio.php">Registrar</button>
+                <button class="btn btn-primary btn-block" name = "agregar" href="edit.php">Agregar Sección</button>
             </form>
           <div class="text-center">
-            <a class="d-block small mt-3" href="inicio.php">Regresar</a>
+            <a class="d-block small mt-3" href="edit.php">Regresar</a>
           </div>
         </div>
       </div>
@@ -72,24 +72,21 @@
 
     if (isset($_POST['registrar'])) {
 
-      require_once("lib/db_connect.php");
-      $db = Conectar::conexion();
+        require_once("lib/db_connect.php");
+        $db = Conectar::conexion();
 
-      $carrera = $_POST['carrera'];
-      $imagen = $_POST['imagen'];
-      $escuela = $_POST['escuela'];
+        $carrera = $_GET['name'];
+        $seccion = $_POST['seccion'];
+        $descripcion = '';
+        $imagen= $_POST['imagen'];
 
-      $descripcion = $_POST['descripcion'];
-      $video = $_POST['video'];
-      $vision = $_POST['vision'];
-      $mision = $_POST['mision'];
-
-      $sql = 'CALL crearCarrera(?,?,?)';
-      $stmt = $db->prepare($sql);
-      $stmt->bindParam(1, $carrera, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
-      $stmt->bindParam(2, $escuela, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
-      $stmt->bindParam(3, $imagen, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
-      $stmt->execute();
+        $sql = 'CALL crearSeccion(?,?,?,?)';
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam(1, $carrera, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
+        $stmt->bindParam(2, $seccion, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
+        $stmt->bindParam(3, $descripcion, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 1000);
+        $stmt->bindParam(4, $imagen, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
+        $stmt->execute();
         
       
       /*$seccionBienvenida = "Bienvenida";

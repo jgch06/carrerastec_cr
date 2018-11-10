@@ -86,9 +86,9 @@
           <!-- Breadcrumbs-->
           <ol class="breadcrumb">
             <li class="breadcrumb-item">
-              <a href="#">Información General</a>
+              <a href="#">Secciones</a>
             </li>
-            <li class="breadcrumb-item active">Vista General</li>
+            <li class="breadcrumb-item active">Secciones de Carrera</li>
           </ol>
 
           <!-- DataTables Example -->
@@ -96,34 +96,40 @@
           <?php 
           	require_once("lib/db_connect.php");
 		    $db = Conectar::conexion();
-		    $sql = 'CALL sp_getCareers()';
+            $id = $_GET["id"];
+		    $sql = 'CALL sp_getCareerSections(?)';
 	        $stmt = $db->prepare($sql);
+            $stmt->bindParam(1, $id, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 11);
 	        $stmt->execute();
-	        $infoCarreras = $stmt->fetchAll();
+	        $sp_getCareerSections = $stmt->fetchAll();
           ?>
 
 
           <div class="card mb-3">
             <div class="card-header">
               <i class="fas fa-table"></i>
-              Carreras del Tecnológico de Costa Rica</div>
+                <?php echo $name = $_GET["name"]?> </button></div>
+              <div>  </div>
             <div class="card-body">
               <div class="table-responsive">
+
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
-                      <th>Nombre Carrera</th>
-                      <th>Escuela</th>
+                        <th>Nombre Sección</th>
+                        <th>Editar</th>
+                        <th>Borrar</th>
                     </tr>
                   </thead>
                   <tbody>
-                  	<?php 
-			          foreach($infoCarreras as $fila):
+                  	<?php
+			          foreach($sp_getCareerSections as $fila):
 			        ?>
 
                     <tr>
-                      <td> <?php  echo $fila["name"]?> </td>
-                      <td> <?php  echo $fila["school"]?> </td>
+                        <td> <?php  echo $fila["name"]?> </td>
+                        <td><a href= "editSection.php?id=<?php echo $fila["idSection"]?>&name=<?php echo $fila["name"]?>"><center><input type=image src="editb.png" width="35" height="35"></center></a></td>
+                        <td><a><center><input type=image src="erase.png" width="35" height="35" data-toggle="modal" data-target="#eraseModal"></center></a></td>
                     </tr>
 
                     <?php
@@ -132,6 +138,7 @@
 
                   </tbody>
                 </table>
+
               </div>
             </div>
           </div>
@@ -173,6 +180,25 @@
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
                     <a class="btn btn-primary" href="login.php">Salir</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Erase Modal-->
+    <div class="modal fade" id="eraseModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">¿Seguro que desea borrar la carrera?</h5>
+                    <button class="erase" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Seleccione borrar si está seguro.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal"> Cancelar </button>
+                    <a class="btn btn-primary" href= "eraseSection.php?id=<?php echo $fila["idSection"]?>"> Borrar </a>
                 </div>
             </div>
         </div>

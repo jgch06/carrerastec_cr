@@ -72,7 +72,7 @@
                     <span>Carreras</span>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-                    <h6 class="dropdown-header">Opciones de desarrollo:</h6>
+                    <h6 class="dropdown-header">Opciones:</h6>
                     <a class="dropdown-item" href="register.php">Registrar Carrera</a>
                     <a class="dropdown-item" href="edit.php">Editar Carrera</a>
                     <a class="dropdown-item" href="erase.php">Borrar Carrera</a>

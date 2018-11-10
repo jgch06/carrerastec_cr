@@ -72,9 +72,9 @@
                     <span>Carreras</span>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-                    <h6 class="dropdown-header">Opciones de desarrollo:</h6>
+                    <h6 class="dropdown-header">Opciones:</h6>
                     <a class="dropdown-item" href="register.php">Registrar Carrera</a>
-                    <a class="dropdown-item" href="erase.php">Editar Carrera</a>
+                    <a class="dropdown-item" href="edit.php">Editar Carrera</a>
                     <a class="dropdown-item" href="erase.php">Borrar Carrera</a>
                 </div>
             </li>
@@ -113,7 +113,9 @@
                     <tr>
                         <th>Nombre Carrera</th>
                         <th>Escuela</th>
-                        <th>Editar</th>
+                        <th>Editar Carrera</th>
+                        <th>Agregar sección</th>
+                        <th>Ver secciones</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -123,7 +125,9 @@
                     <tr>
                         <td> <?php  echo $fila["name"]?> </td>
                         <td> <?php  echo $fila["school"]?> </td>
-                        <td><a href= "editar.php?id=<?php echo $fila["idCareer"]?>"><center><input type=image src="edit.png" width="35" height="35"></center></a></td>
+                        <td><a href= "editar.php?id=<?php echo $fila["idCareer"]?>&name=<?php echo $fila["name"]?>"><center><input type=image src="edit.png" width="35" height="35"></center></a></td>
+                        <td><a href= "addSection.php?id=<?php echo $fila["idCareer"]?>&name=<?php echo $fila["name"]?>"><center><input type=image src="add.jpg" width="35" height="35"></center></a></td>
+                        <td><a href= "sections.php?id=<?php echo $fila["idCareer"]?>&name=<?php echo $fila["name"]?>"><center><input type=image src="eye.png" width="35" height="35"></center></a></td>
                     </tr>
                     <?php
                     endforeach

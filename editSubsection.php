@@ -30,7 +30,7 @@
 
 <div class="container">
     <div class="card card-register mx-auto mt-5">
-        <div class="card-header">Editar la carrera: <?php echo $name = $_GET["name"]?> </div>
+        <div class="card-header">Editar la carrera</div>
         <div class="card-body">
             <form enctype="multipart/form-data" method="POST">
                 <div class="form-group">
@@ -38,7 +38,7 @@
                         <div class="col-md-12">
                             <div class="form-label-group">
                                 <input type="text" id="carrera" name = "carrera" class="form-control" placeholder="Nombre de la carrera">
-                                <label for="carrera"> Nombre de la Carrera</label>
+                                <label for="carrera">Nombre de la Carrera</label>
                             </div>
                         </div>
                     </div>
@@ -59,10 +59,42 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn btn-primary btn-block" name = "editar" href="inicio.php">Editar</button>
+                <div class="form-group">
+                    <div class="form-row">
+                        <div class="col-md-6">
+                            <div class="form-label-group">
+                                <input type="text" id="descripcion" name = "descripcion" class="form-control" placeholder="Descripción de la carrera">
+                                <label for="descripcion">Descripción de la carrera</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-label-group">
+                                <input type="text" id="video" name = "video" class="form-control" placeholder="URL del vídeo">
+                                <label for="video">URL del vídeo</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-row">
+                        <div class="col-md-6">
+                            <div class="form-label-group">
+                                <input type="text" id="mision" name = "mision" class="form-control" placeholder="Misión de la carrera">
+                                <label for="mision">Misión de la carrera</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-label-group">
+                                <input type="text" id="vision" name = "vision" class="form-control" placeholder="Visión de la carrera">
+                                <label for="vision">Visión de la carrera</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-primary btn-block" name = "editar" href="inicio.php">Aceptar</button>
             </form>
             <div class="text-center">
-                <a class="d-block small mt-3" href="edit.php">Regresar</a>
+                <a class="d-block small mt-3" href="inicio.php">Regresar</a>
             </div>
         </div>
     </div>
@@ -91,7 +123,7 @@ if (isset($_POST['editar'])) {
     $stmt->bindParam(3, $escuela, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
     $stmt->bindParam(4, $imagen, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
     $stmt->execute();
-    
+
     /*if($imagen != ""){
         $campo = "Bienvenida";
         $sql = 'CALL editarImagenSeccion(?,?,?)';
@@ -99,9 +131,9 @@ if (isset($_POST['editar'])) {
         $stmt->bindParam(1, $id, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 11);
         $stmt->bindParam(2, $campo, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
         $stmt->bindParam(3, $imagen, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
-        $stmt->execute();  
+        $stmt->execute();
     }
-    
+
     if($descripcion != ""){
         $campo = "Descripción de la carrera";
         $sql = 'CALL editarSeccion(?,?,?)';
@@ -111,7 +143,7 @@ if (isset($_POST['editar'])) {
         $stmt->bindParam(3, $descripcion, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 1000);
         $stmt->execute();
     }
-    
+
     if($vision != ""){
         $campo = "Bienvenida";
         $subCampo = "Visión";
@@ -123,7 +155,7 @@ if (isset($_POST['editar'])) {
         $stmt->bindParam(4, $vision, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 1000);
         $stmt->execute();
     }
-    
+
     if($mision != ""){
         $campo = "Bienvenida";
         $subCampo = "Misión";
@@ -135,24 +167,24 @@ if (isset($_POST['editar'])) {
         $stmt->bindParam(4, $mision, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 1000);
         $stmt->execute();
     }
-    
+
     if($video != ""){
         $campo = "Bienvenida";
         $sql = 'CALL editarVideoSeccion(?,?,?)';
         $stmt = $db->prepare($sql);
         $stmt->bindParam(1, $id, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 11);
         $stmt->bindParam(2, $campo, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
-        $stmt->bindParam(3, $video, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);      
+        $stmt->bindParam(3, $video, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
         $stmt->execute();
-        
+
     }*/
-   
+
 
     echo ' <script language="javascript">
                              alert("La carrera se editó con éxito.");
                              //window.location="inicio.php";
                         </script>';
-    
+
     header('location: editar.php?id='.$id);
 }
 
