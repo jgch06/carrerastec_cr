@@ -124,7 +124,7 @@
                     <tr>
                         <td> <?php  echo $fila["name"]?> </td>
                         <td> <?php  echo $fila["school"]?> </td>
-                        <td><a><center><input type=image src="borrar.png" width="35" height="35" data-toggle="modal" data-target="#eraseModal"></center></a></td>
+                        <td><a><center><input type=image src="botones/borrar.png" width="35" height="35" data-toggle="modal" data-target="#eraseModal"></center></a></td>
                     </tr>
                     <?php
                     endforeach
