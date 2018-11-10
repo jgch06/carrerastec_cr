@@ -30,7 +30,7 @@
 
     <div class="container">
       <div class="card card-register mx-auto mt-5">
-        <div class="card-header">Agregar una subsección a <?php echo $name = $_GET["nameSection"]?></div>
+        <div class="card-header">Agregar una subsección a <?php echo $nameSec = $_GET["nameSection"]?></div>
         <div class="card-body">
             <form enctype="multipart/form-data" method="POST">
                 <div class="form-group">
@@ -71,18 +71,22 @@
 
         $carrera = $_GET['name'];
         $id = $_GET['id'];
+        $idSeccion = $_GET['idSection'];
+
         $seccion = $_POST['seccion'];
         $descripcion = $_POST['descripcion'];
-        $imagen= $_POST['imagen'];
 
-        $sql = 'CALL crearSeccion(?,?,?,?)';
+        //$imagen= $_POST['imagen'];
+
+        $sql = 'CALL crearSubSeccion(?,?,?)';
         $stmt = $db->prepare($sql);
-        $stmt->bindParam(1, $carrera, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
+        $stmt->bindParam(1, $idSeccion, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 11);
         $stmt->bindParam(2, $seccion, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
         $stmt->bindParam(3, $descripcion, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 1000);
-        $stmt->bindParam(4, $imagen, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
+        //$stmt->bindParam(4, $imagen, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
         $stmt->execute();
         
+
       
 
       /*echo ' <script language="javascript">
@@ -95,7 +99,7 @@
                              alert("La sección se agregó con éxito.");
                              </script>';
     
-    header('location: addSection.php?id='.$id.'&name='.$carrera);
+    header('location: addSubsection.php?id='.$id.'&idSection='.$idSeccion.'&name='.$carrera.'&nameSection='.$nameSec);
     }
 
     ?>
