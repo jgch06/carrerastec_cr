@@ -128,7 +128,7 @@
 
                     <tr>
                         <td> <?php  echo $fila["name"]?> </td>
-                        <td><a href= "editSection.php?id=<?php echo $fila["idSection"]?>&name=<?php echo $fila["name"]?>"><center><input type=image src="buttons/editb.png" width="35" height="35"></center></a></td>
+                        <td><a href= "editSection.php?id=<?php echo $id?>&idSection=<?php echo $fila["idSection"]?>&name=<?php echo $name?>&nameSection=<?php echo $fila["name"]?>"><center><input type=image src="buttons/editb.png" width="35" height="35"></center></a></td>
                         <td><a><center><input type=image src="buttons/erase.png" width="35" height="35" data-toggle="modal" data-target="#eraseModal"></center></a></td>
                     </tr>
 
@@ -198,7 +198,7 @@
                 <div class="modal-body">Seleccione borrar si está seguro.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal"> Cancelar </button>
-                    <a class="btn btn-primary" href= "eraseSection.php?id=<?php echo $fila["idSection"]?>&name=<?php echo $name?>"> Borrar </a>
+                     <a class="btn btn-primary" href= "eraseSection.php?id=<?php echo $id?>&idSection=<?php echo $fila["idSection"]?>&name=<?php echo $name?>"> Borrar </a>
                 </div>
             </div>
         </div>
