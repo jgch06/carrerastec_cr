@@ -128,8 +128,8 @@
 
                     <tr>
                         <td> <?php  echo $fila["name"]?> </td>
-                        <td><a href= "editSection.php?id=<?php echo $fila["idSection"]?>&name=<?php echo $fila["name"]?>"><center><input type=image src="editb.png" width="35" height="35"></center></a></td>
-                        <td><a><center><input type=image src="erase.png" width="35" height="35" data-toggle="modal" data-target="#eraseModal"></center></a></td>
+                        <td><a href= "editSection.php?id=<?php echo $fila["idSection"]?>&name=<?php echo $fila["name"]?>"><center><input type=image src="buttons/editb.png" width="35" height="35"></center></a></td>
+                        <td><a><center><input type=image src="buttons/erase.png" width="35" height="35" data-toggle="modal" data-target="#eraseModal"></center></a></td>
                     </tr>
 
                     <?php
