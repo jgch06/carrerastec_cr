@@ -108,7 +108,7 @@
           <div class="card mb-3">
             <div class="card-header">
               <i class="fas fa-table"></i>
-              Imagenes de la sección <?php echo $name = $_GET["name"] ?></div>
+              Imagenes de la sección <?php echo $nameSection = $_GET["nameSection"] ?></div>
             <div class="card-body">
               <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -193,7 +193,7 @@
                 <div class="modal-body">Seleccione borrar si está seguro.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-                    <a class="btn btn-primary" href= "borrarImagen.php?id=<?php echo $fila["id"]?>"> Borrar </a>
+                    <a class="btn btn-primary" href= "borrarImagen.php?id=<?php echo $_GET['id']?>&idSection=<?php echo $_GET["idSection"]?>&name=<?php echo $_GET['name']?>&nameSection=<?php echo $_GET['nameSection']?>&idSectionImage=<?php echo $fila["idSectionImage"]?>"> Borrar </a>
                 </div>
             </div>
         </div>

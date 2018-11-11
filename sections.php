@@ -120,7 +120,7 @@
                         <th>Editar</th>
                         <th>Borrar</th>
                         <th>Ver Imagenes</th>
-                        <th>Ver Vídeos</th>
+                        <th>Ver Vídeo</th>
                         <th>Ver Subsecciones</th>
                         <th>Agregar Subsecciones</th>
                     </tr>
