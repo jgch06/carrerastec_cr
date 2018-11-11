@@ -121,10 +121,14 @@
                   <tbody>
                   	<?php 
 			          foreach($sp_getSectionVideo as $fila):
+                  $link = "https://www.youtube.com/embed/".$fila["video_file_path"];
 			        ?>
 
                     <tr>
-                        <td><?php  echo $fila["video_file_path"]?></td>
+
+                        <td><iframe width="560" height="315" 
+                    src=<?php echo $link?>  
+                    allowfullscreen></iframe></td>
                         <td><a><center><input type=image src="buttons/borrar.png" width="35" height="35" data-toggle="modal" data-target="#eraseModal"></center></a></td>
                     </tr>
 
