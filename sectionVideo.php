@@ -185,7 +185,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">¿Seguro que desea borrar la carrera?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">¿Seguro que desea borrar el vídeo?</h5>
                     <button class="erase" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
@@ -193,7 +193,7 @@
                 <div class="modal-body">Seleccione borrar si está seguro.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-                    <a class="btn btn-primary" href= "borrar.php?id=<?php echo $fila["id"]?>"> Borrar </a>
+                    <a class="btn btn-primary" href= "borrarVideo.php?id=<?php echo $fila["id"]?>"> Borrar </a>
                 </div>
             </div>
         </div>

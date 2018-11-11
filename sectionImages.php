@@ -193,7 +193,7 @@
                 <div class="modal-body">Seleccione borrar si está seguro.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-                    <a class="btn btn-primary" href= "borrar.php?id=<?php echo $fila["id"]?>"> Borrar </a>
+                    <a class="btn btn-primary" href= "borrarImagen.php?id=<?php echo $fila["id"]?>"> Borrar </a>
                 </div>
             </div>
         </div>

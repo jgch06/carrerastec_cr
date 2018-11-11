@@ -47,12 +47,12 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="php" value="3976" />
+          <entry key="php" value="3995" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PHP" value="3976" />
+          <entry key="PHP" value="3995" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.php.composer.actions" />
@@ -75,20 +75,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sectionImages.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="118" column="25" lean-forward="true" selection-start-line="118" selection-start-column="25" selection-end-line="118" selection-end-column="25" />
+            <state relative-caret-position="697">
+              <caret line="194" column="80" selection-start-line="194" selection-start-column="80" selection-end-line="194" selection-end-column="80" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sectionVideo.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="126" column="66" selection-start-line="126" selection-start-column="66" selection-end-line="126" selection-end-column="66" />
+            <state relative-caret-position="663">
+              <caret line="195" column="93" lean-forward="true" selection-start-line="195" selection-start-column="93" selection-end-line="195" selection-end-column="93" />
             </state>
           </provider>
         </entry>
@@ -194,9 +194,9 @@
         <option value="$PROJECT_DIR$/editSubsection.php" />
         <option value="$PROJECT_DIR$/addSubsection.php" />
         <option value="$PROJECT_DIR$/subsections.php" />
-        <option value="$PROJECT_DIR$/sectionImages.php" />
         <option value="$PROJECT_DIR$/sections.php" />
         <option value="$PROJECT_DIR$/sectionVideo.php" />
+        <option value="$PROJECT_DIR$/sectionImages.php" />
       </list>
     </option>
   </component>
@@ -293,12 +293,12 @@
       <workItem from="1541822976887" duration="8222000" />
       <workItem from="1541866544377" duration="1275000" />
       <workItem from="1541872369992" duration="10152000" />
-      <workItem from="1541895064981" duration="3690000" />
+      <workItem from="1541895064981" duration="3878000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40281000" />
+    <option name="totallyTimeSpent" value="40469000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
@@ -470,13 +470,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sectionImages.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="118" column="25" lean-forward="true" selection-start-line="118" selection-start-column="25" selection-end-line="118" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sections.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="634">
@@ -486,8 +479,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/sectionVideo.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="126" column="66" selection-start-line="126" selection-start-column="66" selection-end-line="126" selection-end-column="66" />
+        <state relative-caret-position="663">
+          <caret line="195" column="93" lean-forward="true" selection-start-line="195" selection-start-column="93" selection-end-line="195" selection-end-column="93" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sectionImages.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="697">
+          <caret line="194" column="80" selection-start-line="194" selection-start-column="80" selection-end-line="194" selection-end-column="80" />
         </state>
       </provider>
     </entry>
