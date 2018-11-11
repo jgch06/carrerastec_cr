@@ -86,9 +86,9 @@
           <!-- Breadcrumbs-->
           <ol class="breadcrumb">
             <li class="breadcrumb-item">
-              <a href="#">Secciones</a>
+              <a href="#">Imagenes</a>
             </li>
-            <li class="breadcrumb-item active">Secciones de Carrera</li>
+            <li class="breadcrumb-item active">Imagenes de Sección</li>
           </ol>
 
           <!-- DataTables Example -->
@@ -96,48 +96,36 @@
           <?php 
           	require_once("lib/db_connect.php");
 		    $db = Conectar::conexion();
-            $id = $_GET["id"];
-		    $sql = 'CALL sp_getCareerSections(?)';
+            $id = $_GET["idSection"];
+		    $sql = 'CALL sp_getSectionImages(?)';
 	        $stmt = $db->prepare($sql);
             $stmt->bindParam(1, $id, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 11);
 	        $stmt->execute();
-	        $sp_getCareerSections = $stmt->fetchAll();
+            $sp_getSectionImages = $stmt->fetchAll();
           ?>
 
 
           <div class="card mb-3">
             <div class="card-header">
               <i class="fas fa-table"></i>
-                <?php echo $name = $_GET["name"]?> </button></div>
-              <div>  </div>
+              Imagenes de la sección <?php echo $name = $_GET["name"] ?></div>
             <div class="card-body">
               <div class="table-responsive">
-
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
-                        <th>Nombre Sección</th>
-                        <th>Editar</th>
+                        <th>Imagenes</th>
                         <th>Borrar</th>
-                        <th>Ver Imagenes</th>
-                        <th>Ver Vídeos</th>
-                        <th>Ver Subsecciones</th>
-                        <th>Agregar Subsecciones</th>
                     </tr>
                   </thead>
                   <tbody>
-                  	<?php
-			          foreach($sp_getCareerSections as $fila):
+                  	<?php 
+			          foreach($sp_getSectionImages as $fila):
 			        ?>
 
                     <tr>
-                        <td> <?php  echo $fila["name"]?> </td>
-                        <td><a href= "editSection.php?id=<?php echo $id?>&idSection=<?php echo $fila["idSection"]?>&name=<?php echo $name?>&nameSection=<?php echo $fila["name"]?>"><center><input type=image src="buttons/editb.png" width="35" height="35"></center></a></td>
-                        <td><a><center><input type=image src="buttons/erase.png" width="35" height="35" data-toggle="modal" data-target="#eraseModal"></center></a></td>
-                        <td><a href= "sectionImages.php?id=<?php echo $id = $_GET["id"]?>&name=<?php echo $name = $_GET["name"]?>&idSection=<?php echo $fila["idSection"]?>&nameSection=<?php echo $fila["name"]?>"><center><input type=image src="buttons/eye.png" width="35" height="35"></center></a></td>
-                        <td><a href= "sectionVideo.php?id=<?php echo $id = $_GET["id"]?>&name=<?php echo $name = $_GET["name"]?>&idSection=<?php echo $fila["idSection"]?>&nameSection=<?php echo $fila["name"]?>"><center><input type=image src="buttons/eye.png" width="35" height="35"></center></a></td>
-                        <td><a href= "subsections.php?id=<?php echo $id = $_GET["id"]?>&name=<?php echo $name = $_GET["name"]?>&idSection=<?php echo $fila["idSection"]?>&nameSection=<?php echo $fila["name"]?>"><center><input type=image src="buttons/eye.png" width="35" height="35"></center></a></td>
-                        <td><a href= "addSubsection.php?id=<?php echo $id = $_GET["id"]?>&name=<?php echo $name = $_GET["name"]?>&idSection=<?php echo $fila["idSection"]?>&nameSection=<?php echo $fila["name"]?>"><center><input type=image src="buttons/add.jpg" width="35" height="35"></center></a></td>
+                        <td><a><center><input type=image src="<?php  echo $fila["image_file_path"]?>" width="250" data-toggle="modal"></center></a></td>
+                        <td><a><center><input type=image src="buttons/borrar.png" width="35" height="35" data-toggle="modal" data-target="#eraseModal"></center></a></td>
                     </tr>
 
                     <?php
@@ -146,7 +134,6 @@
 
                   </tbody>
                 </table>
-
               </div>
             </div>
           </div>
@@ -198,15 +185,15 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">¿Seguro que desea borrar la sección?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">¿Seguro que desea borrar la carrera?</h5>
                     <button class="erase" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
                 <div class="modal-body">Seleccione borrar si está seguro.</div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal"> Cancelar </button>
-                     <a class="btn btn-primary" href= "eraseSection.php?id=<?php echo $id?>&idSection=<?php echo $fila["idSection"]?>&name=<?php echo $name?>"> Borrar </a>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                    <a class="btn btn-primary" href= "borrar.php?id=<?php echo $fila["id"]?>"> Borrar </a>
                 </div>
             </div>
         </div>
