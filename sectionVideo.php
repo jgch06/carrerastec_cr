@@ -207,25 +207,6 @@
         </div>
     </div>
 
-    <!-- Edit Modal
-    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">¿Seguro que desea editar el URL del vídeo?</h5>
-                    <button class="erase" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Seleccione Aceptar si está seguro.</div>
-                <div class="modal-footer">
-              
-                    <button class="btn btn-secondary"  type="button" data-dismiss="modal">Cancelar</button>
-                    <a class="btn btn-primary" href= "editarVideo.php?id=<?php echo $_GET['id']?>&idSection=<?php echo $_GET["idSection"]?>&name=<?php echo $_GET['name']?>&nameSection=<?php echo $_GET['nameSection']?>&idSectionVideo=<?php echo $fila['idSectionVideo']?>$url=<?php echo $_POST["url"]?>" type "button"> Aceptar </a>
-                </div>
-            </div>
-        </div>
-    </div>-->
 
     <?php 
 
