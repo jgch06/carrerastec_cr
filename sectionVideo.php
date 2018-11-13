@@ -86,12 +86,11 @@
           <!-- Breadcrumbs-->
           <ol class="breadcrumb">
             <li class="breadcrumb-item">
-              <a href="#">Imagenes</a>
+              <a href="#">Vídeo</a>
             </li>
-            <li class="breadcrumb-item active">Imagenes de Sección</li>
+            <li class="breadcrumb-item active">Vídeo de Sección</li>
           </ol>
 
-          <!-- DataTables Example -->
 
           <?php 
           	require_once("lib/db_connect.php");
@@ -108,14 +107,15 @@
           <div class="card mb-3">
             <div class="card-header">
               <i class="fas fa-table"></i>
-              Imagenes de la sección <?php echo $name = $_GET["name"] ?></div>
+              Vídeo de la sección: <?php echo $name = $_GET["nameSection"] ?></div>
             <div class="card-body">
+
               <div class="table-responsive">
+
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
                         <th>Vídeo</th>
-                        <!--<th>Borrar</th>-->
                     </tr>
                   </thead>
                   <tbody>
@@ -126,11 +126,11 @@
 
                     <tr>
 
-                        <td><iframe width="560" height="315" 
+                        <td><center>
+                            <iframe width="680" height="420"
                     src=<?php echo $link?>  
-                    allowfullscreen></iframe></td>
-                        <!--<td><a><center><input type=image src="buttons/borrar.png" width="35" height="35" data-toggle="modal" data-target="#eraseModal"></center></a></td>
-                   -->
+                    allowfullscreen></iframe></center></td>
+
 			</tr>
 
                     <?php
@@ -139,15 +139,31 @@
 
                   </tbody>
                 </table>
+
               </div>
             </div>
           </div>
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">¿Desea editar el URL del vídeo?</h5>
+                    </div>
+                    <div class="modal-body">
+                        <input type="text"id="url" name = "url" class="form-control" placeholder="URL del vídeo">
+                    </div>
+                    <div class="modal-footer">
+                        <a <center class="btn btn-primary" href= "editarVideo.php?id=<?php echo $fila["id"]?>" data-toggle="modal" data-target="#editModal"> Actualizar </center></a>
+                    </div>
+                </div>
+            </div>
 
         </div>
         <!-- /.container-fluid -->
 
+
         <!-- Sticky Footer -->
         <footer class="sticky-footer">
+
           <div class="container my-auto">
             <div class="copyright text-center my-auto">
               <span>Copyright © Castle Ching S.A.</span>
@@ -185,20 +201,20 @@
         </div>
     </div>
 
-    <!-- Erase Modal-->
-    <div class="modal fade" id="eraseModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!-- Edit Modal-->
+    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">¿Seguro que desea borrar el vídeo?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">¿Seguro que desea editar el URL del vídeo?</h5>
                     <button class="erase" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">Seleccione borrar si está seguro.</div>
+                <div class="modal-body">Seleccione Aceptar si está seguro.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-                    <a class="btn btn-primary" href= "borrarVideo.php?id=<?php echo $fila["id"]?>"> Borrar </a>
+                    <a class="btn btn-primary" href= "editarVideo.php?id=<?php echo $fila["idVideo"]?>"> Aceptar </a>
                 </div>
             </div>
         </div>
