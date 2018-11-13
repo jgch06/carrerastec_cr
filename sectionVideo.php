@@ -152,7 +152,7 @@
                         <input type="text"id="url" name = "url" class="form-control" placeholder="URL del vídeo">
                     </div>
                     <div class="modal-footer">
-                        <a <center class="btn btn-primary" href= "editarVideo.php?id=<?php echo $fila["id"]?>" data-toggle="modal" data-target="#editModal"> Actualizar </center></a>
+                        <a <center class="btn btn-primary" data-toggle="modal" data-target="#editModal"> Actualizar </center></a>
                     </div>
                 </div>
             </div>

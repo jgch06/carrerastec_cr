@@ -139,6 +139,19 @@
           </div>
 
         </div>
+          <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">¿Desea agregar una imagen?</h5>
+                  </div>
+                  <div class="modal-body">
+                      <input type="text"id="url" name = "url" class="form-control" placeholder="URL de la imagen">
+                  </div>
+                  <div class="modal-footer">
+                      <a <center class="btn btn-primary" data-toggle="modal" data-target="#addModal"> Agregar </center></a>
+                  </div>
+              </div>
+          </div>
         <!-- /.container-fluid -->
 
         <!-- Sticky Footer -->
@@ -185,7 +198,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">¿Seguro que desea borrar la carrera?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">¿Seguro que desea borrar la imagen?</h5>
                     <button class="erase" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
@@ -194,6 +207,25 @@
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
                     <a class="btn btn-primary" href= "borrarImagen.php?id=<?php echo $_GET['id']?>&idSection=<?php echo $_GET["idSection"]?>&name=<?php echo $_GET['name']?>&nameSection=<?php echo $_GET['nameSection']?>&idSectionImage=<?php echo $fila["idSectionImage"]?>"> Borrar </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Modal-->
+    <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">¿Seguro que desea agregar la imagen?</h5>
+                    <button class="erase" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Seleccione agregar si está seguro.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                    <a class="btn btn-primary" href= "agregarImagen.php?id=<?php echo $_GET['id']?>&idSection=<?php echo $_GET["idSection"]?>&name=<?php echo $_GET['name']?>&nameSection=<?php echo $_GET['nameSection']?>&idSectionImage=<?php echo $fila["idSectionImage"]?>"> Agregar </a>
                 </div>
             </div>
         </div>
