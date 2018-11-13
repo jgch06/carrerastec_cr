@@ -139,6 +139,7 @@
           </div>
 
         </div>
+        <form method="POST">
           <div class="modal-dialog" role="document">
               <div class="modal-content">
                   <div class="modal-header">
@@ -147,11 +148,13 @@
                   <div class="modal-body">
                       <input type="text"id="url" name = "url" class="form-control" placeholder="URL de la imagen">
                   </div>
-                  <div class="modal-footer">
-                      <a <center class="btn btn-primary" data-toggle="modal" data-target="#addModal"> Agregar </center></a>
+                  <div>
+                  <button class="btn btn-primary btn-block" name = "agregar" >Agregar</button>
                   </div>
+
               </div>
           </div>
+          </form>
         <!-- /.container-fluid -->
 
         <!-- Sticky Footer -->
@@ -212,24 +215,35 @@
         </div>
     </div>
 
-    <!-- Add Modal-->
-    <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">¿Seguro que desea agregar la imagen?</h5>
-                    <button class="erase" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Seleccione agregar si está seguro.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-                    <a class="btn btn-primary" href= "agregarImagen.php?id=<?php echo $_GET['id']?>&idSection=<?php echo $_GET["idSection"]?>&name=<?php echo $_GET['name']?>&nameSection=<?php echo $_GET['nameSection']?>&idSectionImage=<?php echo $fila["idSectionImage"]?>"> Agregar </a>
-                </div>
-            </div>
-        </div>
-    </div>
+
+
+    <?php 
+
+    if (isset($_POST['agregar'])) {
+
+      require_once("lib/db_connect.php");
+      $db = Conectar::conexion();
+
+      $idSection = $_GET["idSection"];
+      $url = $_POST["url"];
+      $vacio ="";
+
+      $sql = 'CALL agregarImagenesSeccion(?,?,?)';
+      $stmt = $db->prepare($sql);
+      $stmt->bindParam(1, $idSection, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 11);
+      $stmt->bindParam(2, $url, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
+      $stmt->bindParam(3, $vacio, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
+      $stmt->execute();
+
+
+      $id = $_GET['id'];
+      $name = $_GET['name'];
+      $nameSection = $_GET['nameSection'];
+
+      header('location: sectionImages.php?id='.$id.'&name='.$name.'&idSection='.$idSection.'&nameSection='.$nameSection);
+
+    }
+    ?>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>

@@ -119,22 +119,26 @@
                     </tr>
                   </thead>
                   <tbody>
-                  	<?php 
-			          foreach($sp_getSectionVideo as $fila):
-                  $link = "https://www.youtube.com/embed/".$fila["video_file_path"];
-			        ?>
+                <?php 
+			          foreach($sp_getSectionVideo as $fila): ?>
+                  <?php if($fila["video_file_path"] != ""): ?>
+                  <?php $link = "https://www.youtube.com/embed/".$fila["video_file_path"]; ?>
+			          
 
-                    <tr>
+                      <tr>
 
-                        <td><center>
-                            <iframe width="680" height="420"
-                    src=<?php echo $link?>  
-                    allowfullscreen></iframe></center></td>
+                          <td><center>
+                              <iframe width="680" height="420"
+                      src=<?php echo $link?>  
+                      allowfullscreen></iframe></center></td>
 
 			</tr>
 
+
+
                     <?php
-			        endforeach
+                  endif?>
+			        <?php endforeach
 			        ?>
 
                   </tbody>
@@ -143,6 +147,9 @@
               </div>
             </div>
           </div>
+
+          <form method="POST">
+          
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -151,11 +158,10 @@
                     <div class="modal-body">
                         <input type="text"id="url" name = "url" class="form-control" placeholder="URL del vídeo">
                     </div>
-                    <div class="modal-footer">
-                        <a <center class="btn btn-primary" data-toggle="modal" data-target="#editModal"> Actualizar </center></a>
-                    </div>
+                    <button class="btn btn-primary btn-block" name = "actualizar" >Actualizar</button>
                 </div>
             </div>
+         </form>
 
         </div>
         <!-- /.container-fluid -->
@@ -201,7 +207,7 @@
         </div>
     </div>
 
-    <!-- Edit Modal-->
+    <!-- Edit Modal
     <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -213,12 +219,41 @@
                 </div>
                 <div class="modal-body">Seleccione Aceptar si está seguro.</div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-                    <a class="btn btn-primary" href= "editarVideo.php?id=<?php echo $fila["idVideo"]?>"> Aceptar </a>
+              
+                    <button class="btn btn-secondary"  type="button" data-dismiss="modal">Cancelar</button>
+                    <a class="btn btn-primary" href= "editarVideo.php?id=<?php echo $_GET['id']?>&idSection=<?php echo $_GET["idSection"]?>&name=<?php echo $_GET['name']?>&nameSection=<?php echo $_GET['nameSection']?>&idSectionVideo=<?php echo $fila['idSectionVideo']?>$url=<?php echo $_POST["url"]?>" type "button"> Aceptar </a>
                 </div>
             </div>
         </div>
-    </div>
+    </div>-->
+
+    <?php 
+
+    if (isset($_POST['actualizar'])) {
+
+      require_once("lib/db_connect.php");
+      $db = Conectar::conexion();
+
+      $idSectionVideo = $fila["idSectionVideo"];
+      $url = $_POST["url"];
+
+      $sql = 'CALL editarVideoSeccion(?,?)';
+      $stmt = $db->prepare($sql);
+      $stmt->bindParam(1, $idSectionVideo, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 11);
+      $stmt->bindParam(2, $url, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 200);
+      $stmt->execute();
+
+
+      $id = $_GET['id'];
+      $name = $_GET['name'];
+      $idSection = $_GET['idSection'];
+      $nameSection = $_GET['nameSection'];
+
+      header('location: sectionVideo.php?id='.$id.'&name='.$name.'&idSection='.$idSection.'&nameSection='.$nameSection);
+
+    }
+    ?>
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
@@ -299,6 +334,8 @@
           }
         }
       });</script>
+
+
                                             
 
   </body>
