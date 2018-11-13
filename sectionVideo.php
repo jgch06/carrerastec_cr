@@ -115,7 +115,7 @@
                   <thead>
                     <tr>
                         <th>Vídeo</th>
-                        <th>Borrar</th>
+                        <!--<th>Borrar</th>-->
                     </tr>
                   </thead>
                   <tbody>
@@ -129,8 +129,9 @@
                         <td><iframe width="560" height="315" 
                     src=<?php echo $link?>  
                     allowfullscreen></iframe></td>
-                        <td><a><center><input type=image src="buttons/borrar.png" width="35" height="35" data-toggle="modal" data-target="#eraseModal"></center></a></td>
-                    </tr>
+                        <!--<td><a><center><input type=image src="buttons/borrar.png" width="35" height="35" data-toggle="modal" data-target="#eraseModal"></center></a></td>
+                   -->
+			</tr>
 
                     <?php
 			        endforeach
